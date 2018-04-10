@@ -1,0 +1,1 @@
+**Laravel - Fast resources generators for Larapi**
