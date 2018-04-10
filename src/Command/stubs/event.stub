@@ -1,0 +1,16 @@
+<?php
+
+namespace DummyNamespace;
+
+use Infrastructure\Events\Event;
+use BaseModelsNamespace\DummyModel;
+
+class DummyClass extends Event
+{
+    public $modelname;
+
+    public function __construct(DummyModel $modelname)
+    {
+        $this->modelname = $modelname;
+    }
+}

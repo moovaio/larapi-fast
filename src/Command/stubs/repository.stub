@@ -1,0 +1,33 @@
+<?php
+
+namespace DummyNamespace;
+
+use BaseModelsNamespace\DummyModel;
+use Infrastructure\Database\Eloquent\Repository;
+
+class DummyClass extends Repository
+{
+    public function getModel()
+    {
+        return new DummyModel();
+    }
+
+    public function create(array $data)
+    {
+        $dummyname = $this->getModel();
+
+        $dummyname->fill($data);
+        $dummyname->save();
+
+        return $dummyname;
+    }
+
+    public function update(DummyModel $dummyname, array $data)
+    {
+        $dummyname->fill($data);
+
+        $dummyname->save();
+
+        return $dummyname;
+    }
+}

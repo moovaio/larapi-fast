@@ -1,0 +1,7 @@
+<?php
+
+$router->get('/dummyname', 'DummyController@getAll');
+$router->get('/dummyname/{id}', 'DummyController@getById');
+$router->post('/dummyname', 'DummyController@create');
+$router->put('/dummyname/{id}', 'DummyController@update');
+$router->delete('/dummyname/{id}', 'DummyController@delete');

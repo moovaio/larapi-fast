@@ -1,0 +1,88 @@
+<?php
+
+namespace DummyNamespace;
+
+use Exception;
+use Illuminate\Auth\AuthManager;
+use Illuminate\Database\DatabaseManager;
+use Illuminate\Events\Dispatcher;
+use BaseExceptionsNamespace\DummyModelNotFoundException;
+use BaseEventsNamespace\DummyModelWasCreated;
+use BaseEventsNamespace\DummyModelWasDeleted;
+use BaseEventsNamespace\DummyModelWasUpdated;
+use BaseRepositoriesNamespace\DummyModelRepository;
+
+class DummyClass
+{
+    private $auth;
+
+    private $database;
+
+    private $dispatcher;
+
+    private $dummynameRepository;
+
+    public function __construct(
+        AuthManager $auth,
+        DatabaseManager $database,
+        Dispatcher $dispatcher,
+        DummyModelRepository $dummynameRepository
+    ) {
+        $this->auth = $auth;
+        $this->database = $database;
+        $this->dispatcher = $dispatcher;
+        $this->dummynameRepository = $dummynameRepository;
+    }
+
+    public function getAll($options = [])
+    {
+        return $this->dummynameRepository->get($options);
+    }
+
+    public function getById($dummynameId, array $options = [])
+    {
+        $dummyname = $this->getRequestedDummyModel($dummynameId);
+
+        return $dummyname;
+    }
+
+    public function create($data)
+    {
+        $dummyname = $this->dummynameRepository->create($data);
+
+        $this->dispatcher->fire(new DummyModelWasCreated($dummyname));
+
+        return $dummyname;
+    }
+
+    public function update($dummynameId, array $data)
+    {
+        $dummyname = $this->getRequestedDummyModel($dummynameId);
+
+        $this->dummynameRepository->update($dummyname, $data);
+
+        $this->dispatcher->fire(new DummyModelWasUpdated($dummyname));
+
+        return $dummyname;
+    }
+
+    public function delete($dummynameId)
+    {
+        $dummyname = $this->getRequestedDummyModel($dummynameId);
+
+        $this->dummynameRepository->delete($dummynameId);
+
+        $this->dispatcher->fire(new DummyModelWasDeleted($dummyname));
+    }
+
+    private function getRequestedDummyModel($dummynameId)
+    {
+        $dummyname = $this->dummynameRepository->getById($dummynameId);
+
+        if (is_null($dummyname)) {
+            throw new DummyModelNotFoundException();
+        }
+
+        return $dummyname;
+    }
+}

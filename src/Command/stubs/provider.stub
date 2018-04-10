@@ -1,0 +1,23 @@
+<?php
+
+namespace DummyNamespace;
+
+use Infrastructure\Events\EventServiceProvider;
+use BaseEventsNamespace\DummyModelWasCreated;
+use BaseEventsNamespace\DummyModelWasDeleted;
+use BaseEventsNamespace\DummyModelWasUpdated;
+
+class DummyClass extends EventServiceProvider
+{
+    protected $listen = [
+        DummyModelWasCreated::class => [
+            // listeners for when a user is created
+        ],
+        DummyModelWasDeleted::class => [
+            // listeners for when a user is deleted
+        ],
+        DummyModelWasUpdated::class => [
+            // listeners for when a user is updated
+        ]
+    ];
+}

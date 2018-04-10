@@ -1,0 +1,57 @@
+<?php
+
+namespace DummyNamespace;
+
+use Illuminate\Http\Request;
+use Infrastructure\Http\Controller;
+use BaseRequestsNamespace\CreateUserRequest;
+use BaseServicesNamespace\DummyServiceName;
+
+class DummyClass extends Controller
+{
+    private $dummynameService;
+
+    public function __construct(DummyServiceName $dummynameService)
+    {
+        $this->dummynameService = $dummynameService;
+    }
+
+    public function getAll()
+    {
+        $resourceOptions = $this->parseResourceOptions();
+
+        $data = $this->dummynameService->getAll($resourceOptions);
+        $parsedData = $this->parseData($data, $resourceOptions, 'dummynames');
+
+        return $this->response($parsedData);
+    }
+
+    public function getById($dummynameId)
+    {
+        $resourceOptions = $this->parseResourceOptions();
+
+        $data = $this->dummynameService->getById($dummynameId, $resourceOptions);
+        $parsedData = $this->parseData($data, $resourceOptions, 'dummyname');
+
+        return $this->response($parsedData);
+    }
+
+    public function create(CreateUserRequest $request)
+    {
+        $data = $request->get('user', []);
+
+        return $this->response($this->dummynameService->create($data), 201);
+    }
+
+    public function update($dummynameId, Request $request)
+    {
+        $data = $request->get('dummyname', []);
+
+        return $this->response($this->dummynameService->update($dummynameId, $data));
+    }
+
+    public function delete($dummynameId)
+    {
+        return $this->response($this->dummynameService->delete($dummynameId));
+    }
+}

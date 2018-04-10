@@ -1,0 +1,27 @@
+<?php
+
+namespace DummyNamespace;
+
+use Infrastructure\Http\ApiRequest;
+
+class DummyClass extends ApiRequest
+{
+    public function authorize()
+    {
+        return true;
+    }
+
+    public function rules()
+    {
+        return [
+
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+
+        ];
+    }
+}
