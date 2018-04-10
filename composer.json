@@ -1,6 +1,5 @@
 {
   "name": "versoo/larapi-fast",
-  "version": "0.1.0",
   "require": {
     "php": "^7.0",
     "laravel/framework": "~5.6"
