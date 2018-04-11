@@ -1,5 +1,6 @@
 {
   "name": "versoo/larapi-fast",
+  "description": "Package to fast generate Resources in Larapi distribution. Very small, very simple but works.",
   "require": {
     "php": "^7.0",
     "laravel/framework": "~5.6"
