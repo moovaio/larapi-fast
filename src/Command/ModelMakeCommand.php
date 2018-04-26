@@ -58,8 +58,9 @@ class ModelMakeCommand extends LarapiFastGeneratorCommand {
 	protected function createController() {
 		$controller = Str::studly( class_basename( $this->qualifyClass( $this->getNameInput() ) ) );
 
-		$this->call( 'api:controller', [
-			'name' => "{$controller}Controller",
+		$this->call( 'larapi:controller', [
+			'resource' => $this->argument( 'resource' ),
+			'name'     => "{$controller}Controller",
 		] );
 	}
 
