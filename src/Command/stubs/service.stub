@@ -2,15 +2,14 @@
 
 namespace DummyNamespace;
 
-use Exception;
-use Illuminate\Auth\AuthManager;
-use Illuminate\Database\DatabaseManager;
-use Illuminate\Events\Dispatcher;
-use BaseExceptionsNamespace\DummyModelNotFoundException;
 use BaseEventsNamespace\DummyModelWasCreated;
 use BaseEventsNamespace\DummyModelWasDeleted;
 use BaseEventsNamespace\DummyModelWasUpdated;
+use BaseExceptionsNamespace\DummyModelNotFoundException;
 use BaseRepositoriesNamespace\DummyModelRepository;
+use Illuminate\Auth\AuthManager;
+use Illuminate\Database\DatabaseManager;
+use Illuminate\Events\Dispatcher;
 
 class DummyClass
 {
