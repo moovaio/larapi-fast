@@ -1,6 +1,7 @@
 <?php
 
 namespace DummyNamespace;
+
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DummyClass extends NotFoundHttpException

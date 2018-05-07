@@ -4,7 +4,7 @@ namespace DummyNamespace;
 
 use Illuminate\Http\Request;
 use Infrastructure\Http\Controller;
-use BaseRequestsNamespace\CreateUserRequest;
+use BaseRequestsNamespace\DummyRequest;
 use BaseServicesNamespace\DummyServiceName;
 
 class DummyClass extends Controller
@@ -36,9 +36,9 @@ class DummyClass extends Controller
         return $this->response($parsedData);
     }
 
-    public function create(CreateUserRequest $request)
+    public function create(DummyRequest $request)
     {
-        $data = $request->get('user', []);
+        $data = $request->get('dummyname', []);
 
         return $this->response($this->dummynameService->create($data), 201);
     }
