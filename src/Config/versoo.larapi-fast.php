@@ -1,60 +1,60 @@
 <?php
 
 return [
-	/*
-	 * Default namespace for API
-	 */
+    /*
+     * Default namespace for API
+     */
 
-	'rootNamespace'   => "Api\\",
-	'Resource'        => [],
+    'rootNamespace' => "Api\\",
+    'Resource' => [],
 
-	/*
-	 * Directory for custom stubs files.
-	 * If NULL commands use default stubs files.
-	 */
-	'stubs_directory' => null,
+    /*
+     * Directory for custom stubs files.
+     * If NULL commands use default stubs files.
+     */
+    'stubs_directory' => null,
 
-	'Command' => [
-		'directory' => 'Console'
-	],
+    'Command' => [
+        'directory' => 'Console',
+    ],
 
-	'Controller' => [
-		'directory' => 'Controllers',
-	],
+    'Controller' => [
+        'directory' => 'Controllers',
+    ],
 
-	'Event' => [
-		'directory' => 'Events'
-	],
+    'Event' => [
+        'directory' => 'Events',
+    ],
 
-	'Exception' => [
-		'directory' => 'Exceptions'
-	],
+    'Exception' => [
+        'directory' => 'Exceptions',
+    ],
 
-	'Model' => [
-		'directory' => 'Models',
-		'migration' => true,
-		'factory'   => true,
-		'seeder'    => true
-	],
+    'Model' => [
+        'directory' => 'Models',
+        'migration' => true,
+        'factory' => true,
+        'seeder' => true,
+    ],
 
-	'Repository' => [
-		'directory' => 'Repositories',
-	],
+    'Repository' => [
+        'directory' => 'Repositories',
+    ],
 
-	'Request' => [
-		'directory' => 'Requests'
-	],
+    'Request' => [
+        'directory' => 'Requests',
+    ],
 
-	'Service' => [
-		'directory' => 'Services'
-	],
+    'Service' => [
+        'directory' => 'Services',
+    ],
 
-	'Routes' => [
-		'directory' => null
-	],
+    'Routes' => [
+        'directory' => null,
+    ],
 
-	'Provider' => [
-		'directory' => null
-	]
+    'Provider' => [
+        'directory' => null,
+    ],
 
 ];
