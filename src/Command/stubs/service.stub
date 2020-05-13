@@ -49,7 +49,7 @@ class DummyClass
     {
         $dummyname = $this->dummynameRepository->create($data);
 
-        $this->dispatcher->fire(new DummyModelWasCreated($dummyname));
+        $this->dispatcher->dispatch(new DummyModelWasCreated($dummyname));
 
         return $dummyname;
     }
@@ -60,7 +60,7 @@ class DummyClass
 
         $this->dummynameRepository->update($dummyname, $data);
 
-        $this->dispatcher->fire(new DummyModelWasUpdated($dummyname));
+        $this->dispatcher->dispatch(new DummyModelWasUpdated($dummyname));
 
         return $dummyname;
     }
@@ -71,7 +71,7 @@ class DummyClass
 
         $this->dummynameRepository->delete($dummynameId);
 
-        $this->dispatcher->fire(new DummyModelWasDeleted($dummyname));
+        $this->dispatcher->dispatch(new DummyModelWasDeleted($dummyname));
     }
 
     private function getRequestedDummyModel($dummynameId)
